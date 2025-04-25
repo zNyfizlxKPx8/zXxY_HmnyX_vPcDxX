@@ -1,18 +1,110 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- xOxMacrosxOx De xED, Protege tus xmacros si el name de el player no esta en la lista no podra usar los xscripts.
 
 local allowedNames = {
-  "Juanchis",  -- Juanchis
-  "Que asco",  -- Juanchis
-  "Charlix",      -- Charlix
+  "Charlix",     -- Charlix
   "[Dnt] Charlix",  -- Charlix
-  "Kiltroasasin",   -- Kiltro
-  "Sergio",  -- Sergio
-  "Sergiox", -- Sergio
-  "Sergiodx", -- Sergio
   "Undersky",
-  "Neo Jinix", -- Tostichos
-  "[DNT] Neo Jinix", -- Tostichos
-  "[DNT] Rolex", -- Tostichos
   "name11",
   "name12",
   "name13",
@@ -46,7 +138,7 @@ storage[panelStorage] = storage[panelStorage] or
 	monstersCount = 3,
 }
 
-macro(100, function()
+macro(2000, function()
 	local target = g_game.getAttackingCreature()
 	if not target then return end
 
