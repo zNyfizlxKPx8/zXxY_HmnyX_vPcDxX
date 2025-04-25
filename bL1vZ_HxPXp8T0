@@ -1,19 +1,109 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- xOxMacrosxOx De xED, Protege tus xmacros si el name de el player no esta en la lista no podra usar los xscripts.
 
 local allowedNames = {
-  "Juanchis",  -- Juanchis
-  "Que asco",  -- Juanchis
-  "Charlix",      -- Charlix
+  "Charlix",     -- Charlix
   "[Dnt] Charlix",  -- Charlix
-  "Kiltroasasin",   -- Kiltro
-  "Sergio",  -- Sergio
-  "Sergiox", -- Sergio
-  "Sergiodx", -- Sergio
   "Undersky",
-  "Neo Jinix", -- Tostichos
-  "[DNT] Neo Jinix", -- Tostichos
-  "[DNT] Rolex", -- Tostichos
-  "name12",
   "name13",
   "name14",
   "name15",
