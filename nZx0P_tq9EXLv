@@ -102,8 +102,11 @@
 local allowedNames = {
   "Charlix",     -- Charlix
   "[Dnt] Charlix",  -- Charlix
-  "Undersky",
-  "name",
+  "Undersky", -- mio
+  "Neo Jinix",  -- tostichos
+  "Neo Jiniix", -- tostichos
+  "[DNT] Rolex",  -- tostichos
+  "[DNT] Neo Jinix", -- tostichos
   "name",
   "name",
   "name",
