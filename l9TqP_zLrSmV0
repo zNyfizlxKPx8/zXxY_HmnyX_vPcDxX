@@ -2378,7 +2378,7 @@ local checarExpPorHora = macro(1000, function()
 end)
 
 panelHud:breakAnchors() --editado por Madgenius
-panelHud:move(1260, 700) -- Ajusta la posicion del panel HUD cambiando estos valores
+panelHud:move(1280, 800) -- Ajusta la posicion del panel HUD cambiando estos valores
 
 function inicializar()
   actualizarExpPorHora()
