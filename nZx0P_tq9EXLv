@@ -1950,6 +1950,15 @@ local holdMacro = macro(500, "Hold Mw", function()
 end)
 
 -- ===============================
+-- DETECTAR CUANDO SE APAGA (LIMPIEZA)
+-- ===============================
+macro(300, function()
+  if not holdMacro:isOn() and #candidates > 0 then
+    clearHoldMarks()
+  end
+end)
+
+-- ===============================
 -- CUANDO LA WALL DESAPARECE
 -- ===============================
 onRemoveThing(function(tile, thing)
