@@ -1890,8 +1890,9 @@ local holdtMacro = macro(1000, "Hold Target", function()
   end
 end)
 
+-- ===============================
 -- HOLD MW / HOLD WG
--- Macro normal (para ToolsV2)
+-- Macro normal (ToolsV2)
 -- ===============================
 
 local candidates = {}
@@ -1912,7 +1913,19 @@ local function getRuneByText(text)
 end
 
 -- ===============================
--- MACRO PRINCIPAL (ON/OFF via checkbox)
+-- LIMPIAR MARCAS
+-- ===============================
+local function clearHoldMarks()
+  for _, tile in ipairs(g_map.getTiles(posz())) do
+    if tile:getText() == "HOLD MW" or tile:getText() == "HOLD WG" then
+      tile:setText("")
+    end
+  end
+  candidates = {}
+end
+
+-- ===============================
+-- MACRO PRINCIPAL
 -- ===============================
 local holdMacro = macro(500, "Hold Mw", function()
   if #candidates == 0 then return end
