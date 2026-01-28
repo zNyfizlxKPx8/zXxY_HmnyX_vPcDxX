@@ -1890,11 +1890,11 @@ local holdtMacro = macro(1000, "Hold Target", function()
   end
 end)
 
--- HOLD MW / HOLD WG (FINAL)
--- Limpio, estable y sin limpieza agresiva
+-- HOLD MW / HOLD WG
+-- Macro normal (para ToolsV2)
+-- ===============================
 
 local candidates = {}
-local shouldHold = false
 
 -- IDs
 local HOLD_MW_RUNE = 3180
@@ -1911,9 +1911,11 @@ local function getRuneByText(text)
   return nil
 end
 
--- Macro que mantiene las walls
+-- ===============================
+-- MACRO PRINCIPAL (ON/OFF via checkbox)
+-- ===============================
 local holdMacro = macro(500, "Hold Mw", function()
-  if not shouldHold or #candidates == 0 then return end
+  if #candidates == 0 then return end
 
   for i = #candidates, 1, -1 do
     local pos = candidates[i]
@@ -1947,9 +1949,11 @@ local holdMacro = macro(500, "Hold Mw", function()
   end
 end)
 
--- Cuando la wall desaparece
+-- ===============================
+-- CUANDO LA WALL DESAPARECE
+-- ===============================
 onRemoveThing(function(tile, thing)
-  if not shouldHold then return end
+  if not holdMacro:isOn() then return end
   if thing:getId() ~= HOLD_ITEM_ID then return end
   if not tile:getText():find("HOLD") then return end
 
@@ -1971,9 +1975,11 @@ onRemoveThing(function(tile, thing)
   end
 end)
 
--- Cuando entra una wall
+-- ===============================
+-- CUANDO ENTRA UNA WALL
+-- ===============================
 onAddThing(function(tile, thing)
-  if not shouldHold then return end
+  if not holdMacro:isOn() then return end
   if thing:getId() ~= HOLD_ITEM_ID then return end
 
   local index = table.find(candidates, tile:getPosition())
@@ -1982,9 +1988,11 @@ onAddThing(function(tile, thing)
   end
 end)
 
--- Marcar tiles SOLO si el icono está ON
+-- ===============================
+-- MARCAR TILE AL USAR RUNA
+-- ===============================
 onUseWith(function(pos, itemId, target)
-  if not shouldHold then return end
+  if not holdMacro:isOn() then return end
   if itemId ~= HOLD_MW_RUNE and itemId ~= HOLD_WG_RUNE then return end
 
   local tile = g_map.getTile(target:getPosition())
@@ -1996,16 +2004,6 @@ onUseWith(function(pos, itemId, target)
     table.insert(candidates, tile:getPosition())
   end
 end)
-
--- Limpiar marcas SOLO al apagar icono
-local function clearHoldMarks()
-  for _, t in ipairs(g_map.getTiles(posz())) do
-    if t:getText() == "HOLD MW" or t:getText() == "HOLD WG" then
-      t:setText("")
-    end
-  end
-  candidates = {}
-end
 
 -- Auto Suelta Flores o Parcels
 local itemIds = {140,2988,2985,2984,2983,2982,2981,3504}
