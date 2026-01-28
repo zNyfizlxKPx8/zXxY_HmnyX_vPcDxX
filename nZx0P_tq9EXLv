@@ -1912,7 +1912,7 @@ local function getRuneByText(text)
 end
 
 -- Macro que mantiene las walls
-local holdMacro = macro(500, function()
+local holdMacro = macro(500, "Hold Mw", function()
   if not shouldHold or #candidates == 0 then return end
 
   for i = #candidates, 1, -1 do
@@ -2141,7 +2141,7 @@ for _, mac in ipairs(listaMacros) do
         checkbox:setTooltip("Mantiene el ataque al player que estes atacando.")
     end
    -- Tooltip para "holdMwall"
-    if mac.switch:getText() == "HoldMwall" then
+    if mac.switch:getText() == "Hold Mw" then
         checkbox:setTooltip("Mantiene las Magic wall o Tera, creando una marca.")
     end
      -- Tooltip para "dropitem"
